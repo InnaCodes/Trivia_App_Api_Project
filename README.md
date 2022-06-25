@@ -110,7 +110,8 @@ Example: curl http://127.0.0.1:5000/categories
   "success": true
 }
 ```
-GET '/questions'
+
+### GET '/questions'
 returns all the questions in the database and a category dictionary. The questions are paginated with 10 questions each page.
 Example: curl http://127.0.0.1:5000/questions
 ```json
@@ -199,6 +200,7 @@ Example: curl http://127.0.0.1:5000/questions
   "total_questions": 18
 }
 ```
+###
 DELETE '/questions/int:id'
 Delete questions by id specified in the url parameter.
 Example: curl -X DELETE http://127.0.0.1:5000/questions/12
@@ -222,8 +224,10 @@ Example: curl -X POST - H "Content-Type: application/json" -d '{"question": "Who
   "success": true,
   "created": 18,
   "total_questions": 18
-}```
+}
+```
 
+###
 The search feature is implemented within the endpoint for creating new questions using an if check.
 POST '/questions'
 User type in a string to search for a question and it will return all the questions that contain this string.
@@ -243,10 +247,11 @@ it returns:
   ], 
   "success": true, 
   "total_questions": 1
-}```
-
-GET '/categories/int:id/questions'
+}
+```
+###
 Get questions based on a category.
+GET '/categories/int:id/questions'
 
 Example: curl http://127.0.0.1:5000/categories/3/questions
 
@@ -280,9 +285,10 @@ Example: curl http://127.0.0.1:5000/categories/3/questions
 }
 ```
 
-POST '/quizzes'
+### POST '/quizzes'
 Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
 Example: curl -X POST -H "Content-Type: application/json" -d '{"previous_questions": [2, 6], "quiz_category": {"type": "Sports", "id": "11"}}' http://127.0.0.1:5000/quizzes
+
 ```json
 {
   "question": {
