@@ -216,7 +216,8 @@ Question, Answer, Category, Difficulty
 
 Example: curl -X POST - H "Content-Type: application/json" -d '{"question": "Who won the 2021/2022 English Premier League?", "answer": "Manchester City", "difficulty": 1, "category": "6"}' http://127.0.0.1:5000/questions
 
-```json
+
+```json 
 {
   "success": true,
   "created": 18,
@@ -228,6 +229,7 @@ POST '/questions'
 User type in a string to search for a question and it will return all the questions that contain this string.
 Example: curl -X POST -H "Content-Type: application/json" -d '{"searchTerm": "Abstract Expressionism"}' http://127.0.0.1:5000/questions
 it returns:
+
 ```json
 {
   "questions": [
@@ -247,6 +249,7 @@ GET '/categories/int:id/questions'
 Get questions based on a category.
 
 Example: curl http://127.0.0.1:5000/categories/3/questions
+
 ```json
 {
   "questions": [
@@ -274,7 +277,9 @@ Example: curl http://127.0.0.1:5000/categories/3/questions
   ], 
   "success": true, 
   "total_questions": 3
-}```
+}
+```
+
 POST '/quizzes'
 Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
 Example: curl -X POST -H "Content-Type: application/json" -d '{"previous_questions": [2, 6], "quiz_category": {"type": "Sports", "id": "11"}}' http://127.0.0.1:5000/quizzes
