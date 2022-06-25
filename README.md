@@ -47,9 +47,9 @@ From within the backend directory first ensure you are working using your create
 
 To run the server, execute:
 
-  $ export FLASK_APP=flaskr
-  $ export FLASK_ENV=development
-  $ flask run
+$export FLASK_APP=flaskr
+export FLASK_ENV=development
+flask run
 
 Running Your Frontend in development Mode
 
@@ -81,7 +81,7 @@ Errors are returned in the following json format:
 
 ```json 
 {
-    "success": False,
+    "success": false,
     "error": 404,
     "message": "Resource not found"
 }
@@ -109,9 +109,11 @@ Example: curl http://127.0.0.1:5000/categories
   }, 
   "success": true
 }
+```
 GET '/questions'
 returns all the questions in the database and a category dictionary. The questions are paginated with 10 questions each page.
 Example: curl http://127.0.0.1:5000/questions
+```json
 {
   "categories": {
     "1": "Science", 
@@ -196,13 +198,16 @@ Example: curl http://127.0.0.1:5000/questions
   "success": true, 
   "total_questions": 18
 }
+```
 DELETE '/questions/int:id'
 Delete questions by id specified in the url parameter.
 Example: curl -X DELETE http://127.0.0.1:5000/questions/12
+```json
 {
     "success": "True",
     "deleted": 12
 }
+```
 
 ## POST '/questions'
 
@@ -211,17 +216,19 @@ Question, Answer, Category, Difficulty
 
 Example: curl -X POST - H "Content-Type: application/json" -d '{"question": "Who won the 2021/2022 English Premier League?", "answer": "Manchester City", "difficulty": 1, "category": "6"}' http://127.0.0.1:5000/questions
 
+```json
 {
-  "success": true
-  "created": 18
+  "success": true,
+  "created": 18,
   "total_questions": 18
-}
+}```
 
 The search feature is implemented within the endpoint for creating new questions using an if check.
 POST '/questions'
 User type in a string to search for a question and it will return all the questions that contain this string.
 Example: curl -X POST -H "Content-Type: application/json" -d '{"searchTerm": "Abstract Expressionism"}' http://127.0.0.1:5000/questions
 it returns:
+```json
 {
   "questions": [
     {
@@ -234,12 +241,13 @@ it returns:
   ], 
   "success": true, 
   "total_questions": 1
-}
+}```
 
 GET '/categories/int:id/questions'
 Get questions based on a category.
 
 Example: curl http://127.0.0.1:5000/categories/3/questions
+```json
 {
   "questions": [
      {
@@ -266,10 +274,11 @@ Example: curl http://127.0.0.1:5000/categories/3/questions
   ], 
   "success": true, 
   "total_questions": 3
-}
+}```
 POST '/quizzes'
 Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
 Example: curl -X POST -H "Content-Type: application/json" -d '{"previous_questions": [2, 6], "quiz_category": {"type": "Sports", "id": "11"}}' http://127.0.0.1:5000/quizzes
+```json
 {
   "question": {
       "answer": "Uruguay", 
