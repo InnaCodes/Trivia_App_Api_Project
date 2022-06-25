@@ -79,11 +79,13 @@ Frontend Base URL: http://127.0.0.1:3000/
 Error Handling
 Errors are returned in the following json format:
 
+```json 
 {
-    'success': False,
-    'error': 404,
-    'message': 'Resource not found.'
+    "success": False,
+    "error": 404,
+    "message": "Resource not found"
 }
+```
 This API returns 3 types of errors:
 
 400: bad request
@@ -95,6 +97,7 @@ GET '/categories'
 returns a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
 
 Example: curl http://127.0.0.1:5000/categories
+```json
 {
   "categories": {
     "1": "Science", 
@@ -277,3 +280,4 @@ Example: curl -X POST -H "Content-Type: application/json" -d '{"previous_questio
     }, 
   "success": true
 }
+```
