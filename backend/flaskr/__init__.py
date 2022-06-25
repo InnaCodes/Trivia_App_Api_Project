@@ -23,14 +23,6 @@ def paginate_questions(request, selection):
     current_question = questions[start:end]
     return current_question
 
-def paginate_category(request,selection):
-    page = request.args.get('page', 1, type=int)
-    start = (page -1) * QUESTIONS_PER_PAGE
-    end = start +   QUESTIONS_PER_PAGE
-    categories = [category.format() for category in selection]
-    current_category = categories[start:end]
-    return current_category
-
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__)
