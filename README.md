@@ -47,8 +47,8 @@ From within the backend directory first ensure you are working using your create
 
 To run the server, execute:
 
-$export FLASK_APP=flaskr
-export FLASK_ENV=development
+$export FLASK_APP=flaskr |
+$export FLASK_ENV=development |
 flask run
 
 Running Your Frontend in development Mode
